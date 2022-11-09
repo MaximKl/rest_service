@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://service.taxi.myClient.ua/order/"
+            xmlns:ent="http://service.taxi.myClient.ua/"
+            xmlns:us="http://service.taxi.myClient.ua/user/"
+            xmlns:dr="http://service.taxi.myClient.ua/driver/"
+            elementFormDefault="qualified">
+    <xsd:import namespace="http://service.taxi.myClient.ua/" schemaLocation="entity.xsd" />
+    <xsd:import namespace="http://service.taxi.myClient.ua/user/" schemaLocation="user.xsd" />
+    <xsd:import namespace="http://service.taxi.myClient.ua/driver/" schemaLocation="driver.xsd" />
+
+
+    <xsd:complexType name="Order">
+        <xsd:complexContent>
+            <xsd:extension base="ent:Entity">
+                <xsd:sequence>
+                    <xsd:element name="driver" type="dr:Driver"/>
+                    <xsd:element name="user" type="us:User"/>
+
+                    <xsd:element name="price">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:decimal">
+                                <xsd:fractionDigits value="2" />
+                                <xsd:minInclusive value="0" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="mark">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:int">
+                                <xsd:minInclusive value="1" />
+                                <xsd:maxInclusive value="10" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>

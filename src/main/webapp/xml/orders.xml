@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:orders xmlns="http://service.taxi.myClient.ua/driver/" xmlns:ns2="http://service.taxi.myClient.ua/order/" xmlns:ns3="http://service.taxi.myClient.ua/user/">
+    <ns2:order id="1" code="RWAER">
+        <ns2:driver id="1" code="FSDFE">
+            <name>Олег</name>
+            <surname>Пилипко</surname>
+            <age>28</age>
+            <phone>+380990166700</phone>
+            <mark>8.94</mark>
+            <car id="4" code="SDFDF">
+                <brand>Skoda</brand>
+                <c_name>Octavia</c_name>
+                <yearOfProduction>2010</yearOfProduction>
+                <number>AX3431FF</number>
+                <vinNumber>DSFSDFSDF3SDFSDFD</vinNumber>
+                <c_class>Середній</c_class>
+                <color>Сірий</color>
+            </car>
+        </ns2:driver>
+        <ns2:user id="4" code="SADAW">
+            <ns3:name>Петро</ns3:name>
+            <ns3:surname>Петренко</ns3:surname>
+            <ns3:addressFrom>Станція метро Спортивна</ns3:addressFrom>
+            <ns3:addressTo>вулиця Научна 33</ns3:addressTo>
+            <ns3:answer>
+                <ns3:email>petro@gmail.com</ns3:email>
+            </ns3:answer>
+        </ns2:user>
+        <ns2:price>8.94</ns2:price>
+        <ns2:mark>8</ns2:mark>
+    </ns2:order>
+    <ns2:order id="1" code="RWAER">
+        <ns2:driver id="2" code="WQWQE">
+            <name>Дмитро</name>
+            <surname>Дмитречук</surname>
+            <age>28</age>
+            <phone>+380990166700</phone>
+            <mark>8.94</mark>
+            <car id="2" code="SDFDF">
+                <brand>Skoda</brand>
+                <c_name>Fabia</c_name>
+                <yearOfProduction>2012</yearOfProduction>
+                <number>AX7635HI</number>
+                <vinNumber>DSFSD438F3SDFSDFD</vinNumber>
+                <c_class>Середній</c_class>
+                <color>Сірий</color>
+            </car>
+        </ns2:driver>
+        <ns2:user id="2" code="SADAW">
+            <ns3:name>Петро</ns3:name>
+            <ns3:surname>Пилипенко</ns3:surname>
+            <ns3:addressFrom>Станція метро Спортивна</ns3:addressFrom>
+            <ns3:addressTo>вулиця Научна 33</ns3:addressTo>
+            <ns3:answer>
+                <ns3:email>petro@gmail.com</ns3:email>
+            </ns3:answer>
+        </ns2:user>
+        <ns2:price>109.94</ns2:price>
+        <ns2:mark>7</ns2:mark>
+    </ns2:order>
+</ns2:orders>

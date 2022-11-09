@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://service.taxi.myClient.ua/driver/"
+           xmlns:ent="http://service.taxi.myClient.ua/"
+           elementFormDefault="qualified">
+    <xsd:import namespace="http://service.taxi.myClient.ua/" schemaLocation="entity.xsd" />
+
+    <xsd:complexType name="Car">
+        <xsd:complexContent>
+            <xsd:extension base="ent:Entity">
+
+                <xsd:all>
+
+                    <xsd:element name="brand">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:normalizedString">
+                                <xsd:minLength value="1" />
+                                <xsd:maxLength value="70" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="c_name">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:normalizedString">
+                                <xsd:minLength value="1" />
+                                <xsd:maxLength value="70" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="yearOfProduction">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:integer">
+                                <xsd:minInclusive value="1980" />
+                                <xsd:maxInclusive value="2022" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="number">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:pattern value="[A-Z]{2}[0-9]{4}[A-Z]{2}" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="vinNumber">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:length value="17"/>
+                                <xsd:pattern value="[\d|A-Z]{17}" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+
+                    <xsd:element name="c_class" default="Економ">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Економ" />
+                                <xsd:enumeration value="Середній" />
+                                <xsd:enumeration value="Преміум" />
+                                <xsd:enumeration value="Вантажний" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+
+                    <xsd:element name="color" default="Сірий">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Чорний" />
+                                <xsd:enumeration value="Білий" />
+                                <xsd:enumeration value="Сірий" />
+                                <xsd:enumeration value="Зелений" />
+                                <xsd:enumeration value="Синій" />
+                                <xsd:enumeration value="Жовтий" />
+                                <xsd:enumeration value="Червоний" />
+                                <xsd:enumeration value="Коричневий" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                </xsd:all>
+
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

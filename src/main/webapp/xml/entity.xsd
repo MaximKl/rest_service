@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://service.taxi.myClient.ua/"
+		   elementFormDefault="qualified">
+	
+	<xsd:complexType name="Entity">
+
+		<xsd:attribute name="id"  use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minExclusive value="0" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+		<xsd:attribute name="code" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="[A-Ya-y]{5}" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+
+	</xsd:complexType>
+ </xsd:schema>

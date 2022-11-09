@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://service.taxi.myClient.ua/user/"
+            xmlns:tns="http://service.taxi.myClient.ua/user/"
+            xmlns:ent="http://service.taxi.myClient.ua/"
+            elementFormDefault="qualified">
+    <xsd:import namespace="http://service.taxi.myClient.ua/" schemaLocation="entity.xsd" />
+
+    <xsd:complexType name="emailOrPhone">
+        <xsd:choice>
+
+            <xsd:element name="phone">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="(\+380[\d]{9})|(0[\d]{9})" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+
+            <xsd:element name="email">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="(.+)@(\S+)" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+
+        </xsd:choice>
+
+    </xsd:complexType>
+
+    <xsd:complexType name="User">
+        <xsd:complexContent>
+            <xsd:extension base="ent:Entity">
+                <xsd:sequence>
+
+                    <xsd:element name="name" minOccurs="0" maxOccurs="1">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:minLength value="2" />
+                                <xsd:maxLength value="50" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="surname" minOccurs="0" maxOccurs="1">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:minLength value="2" />
+                                <xsd:maxLength value="50" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="addressFrom">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:normalizedString">
+                                <xsd:minLength value="5" />
+                                <xsd:maxLength value="200" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="addressTo">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:normalizedString">
+                                <xsd:minLength value="5" />
+                                <xsd:maxLength value="200" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="answer" type="tns:emailOrPhone" minOccurs="1" maxOccurs="1"/>
+
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>

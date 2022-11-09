@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://service.taxi.myClient.ua/driver/"
+           xmlns:tns="http://service.taxi.myClient.ua/driver/"
+           xmlns:ent="http://service.taxi.myClient.ua/"
+           elementFormDefault="qualified">
+    <xsd:import namespace="http://service.taxi.myClient.ua/" schemaLocation="entity.xsd" />
+
+
+    <xsd:include schemaLocation="car.xsd"/>
+
+        <xsd:complexType name="Driver">
+            <xsd:complexContent>
+                <xsd:extension base="ent:Entity">
+                    <xsd:sequence>
+
+                        <xsd:element name="name">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:token">
+                                    <xsd:minLength value="2" />
+                                    <xsd:maxLength value="50" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+
+                        <xsd:element name="surname">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:token">
+                                    <xsd:minLength value="2" />
+                                    <xsd:maxLength value="50" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+
+                        <xsd:element name="age">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:int">
+                                    <xsd:totalDigits value="2" />
+                                    <xsd:minExclusive value="18" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+
+                        <xsd:element name="phone">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:pattern value="(\+380[\d]{9})|(0[\d]{9})" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+
+                        <xsd:element name="mark">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:decimal">
+                                    <xsd:fractionDigits value="3" />
+                                    <xsd:minInclusive value="0" />
+                                    <xsd:maxInclusive value="10" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+
+                        <xsd:element name="car" type="tns:Car"/>
+
+                    </xsd:sequence>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+
+</xsd:schema>
