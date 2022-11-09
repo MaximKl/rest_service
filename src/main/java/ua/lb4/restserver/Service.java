@@ -32,7 +32,6 @@ public class Service {
         }
         return new Orders();
     }
-
     @POST
     @Path("sendOrder")
     @Consumes(MediaType.APPLICATION_XML)
@@ -53,7 +52,6 @@ public class Service {
         log.info("Було додано нове замовлення, перевірити можна у файлі orders.xml\n");
         return orders.getOrder().get(orders.getOrder().size() - 1);
     }
-
     @GET
     @Path("userHistory/{id}")
     @Produces(MediaType.APPLICATION_XML)
@@ -66,7 +64,6 @@ public class Service {
         log.info("Було надано історію користувача з ID: " + id+"\n");
         return ordersToReturn;
     }
-
     @GET
     @Path("driverBySurname/{surname}")
     @Produces(MediaType.APPLICATION_XML)
@@ -74,7 +71,6 @@ public class Service {
         log.info("Пошук водія за прізвищем: " + surname+"\n");
         return unMarshalOrders().getOrder().stream().map(Order::getDriver).filter(driver -> driver.getSurname().equals(surname)).collect(Collectors.toList());
     }
-
     @GET
     @Path("driverByCode/{code}")
     @Produces(MediaType.APPLICATION_XML)
@@ -82,7 +78,6 @@ public class Service {
         log.info("Пошук водія за кодом: " + code+"\n");
         return unMarshalOrders().getOrder().stream().map(Order::getDriver).filter(driver -> driver.getCode().equals(code)).collect(Collectors.toList());
     }
-
     @GET
     @Path("historyAbove/{mark}")
     @Produces(MediaType.APPLICATION_XML)
@@ -92,7 +87,6 @@ public class Service {
         log.info("Отриманя історії з оцінкою вище за " + mark+"\n");
         return toReturn;
     }
-
     @GET
     @Path("historyBelow/{mark}")
     @Produces(MediaType.APPLICATION_XML)
@@ -102,5 +96,4 @@ public class Service {
         log.info("Отриманя історії з оцінкою нижче за " + mark+"\n");
         return toReturn;
     }
-
 }
